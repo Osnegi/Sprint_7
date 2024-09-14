@@ -92,4 +92,3 @@ class TestOrderData:
         "deliveryDate": "2024-09-25",
         "comment": "Привет друг",
         "color": ["BLACK", "GREY"]}
-

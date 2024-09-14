@@ -18,12 +18,11 @@ class TestDataHelper:
 
     @allure.step('Сформировать данные зарегистрированного курьера с ошибкой в логине')
     def generate_mistake_login_courier_body(body):
-        del body['firstName']
         body['login'] = body['login'] + '1'
         return body
 
     @allure.step('Сформировать данные зарегистрированного курьера с ошибкой в пароле')
     def generate_mistake_password_courier_body(body):
-        del body['firstName']
         body['password'] = body['password'] + '1'
         return body
+

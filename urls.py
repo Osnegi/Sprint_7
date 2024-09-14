@@ -8,3 +8,6 @@ CREATE_ORDER_ENDPOINT = "/orders"
 
 GET_LIST_ORDERS_ENDPOINT = "/orders"
 
+CANCEL_ORDER_ENDPOINT = "/orders/cancel"
+
+DELETE_COURIER_ENDPOINT = "/courier/"
