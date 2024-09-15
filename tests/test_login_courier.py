@@ -12,10 +12,6 @@ class TestLoginCourier:
 
         body = new_couriers_and_clear_courier_data['data']
         login_request = SamokatApi.login_courier(body)
-        try:
-            courier_id = login_request.json()['id']
-        except KeyError:
-            courier_id = ""
         assert login_request.status_code == 200
 
     @allure.title('Проверка успешной авторизации курьера - с id курьера в ответе')
@@ -39,11 +35,6 @@ class TestLoginCourier:
 
         body = new_couriers_and_clear_courier_data['data']
         login_request = SamokatApi.login_courier(TestDataHelper.generate_mistake_login_courier_body(body))
-        try:
-            courier_id = login_request.json()['id']
-        except KeyError:
-            courier_id = ""
-
         assert login_request.status_code == 404
 
 
@@ -54,11 +45,6 @@ class TestLoginCourier:
 
         body = new_couriers_and_clear_courier_data['data']
         login_request = SamokatApi.login_courier(TestDataHelper.generate_mistake_login_courier_body(body))
-        try:
-            courier_id = login_request.json()['id']
-        except KeyError:
-            courier_id = ""
-
         assert login_request.json()['message'] == "Учетная запись не найдена" and login_request.status_code == 404
 
 
@@ -69,11 +55,6 @@ class TestLoginCourier:
 
         body = new_couriers_and_clear_courier_data['data']
         login_request = SamokatApi.login_courier(TestDataHelper.generate_mistake_password_courier_body(body))
-        try:
-            courier_id = login_request.json()['id']
-        except KeyError:
-            courier_id = ""
-
         assert login_request.status_code == 404
 
     @allure.title('Проверка НЕуспешной авторизации курьера с ошибкой в пароле')
@@ -83,11 +64,6 @@ class TestLoginCourier:
 
         body = new_couriers_and_clear_courier_data['data']
         login_request = SamokatApi.login_courier(TestDataHelper.generate_mistake_password_courier_body(body))
-        try:
-            courier_id = login_request.json()['id']
-        except KeyError:
-            courier_id = ""
-
         assert login_request.status_code == 404 and login_request.json()['message'] == "Учетная запись не найдена"
 
 
